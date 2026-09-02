@@ -9,15 +9,18 @@ dependencies = [
   "alembic>=1.19.1",
   "fsrs-rs-python>=0.9.3",
   "sqlalchemy>=2.0.52",
+  "tomlkit>=0.15.1",
   "wenmode>=0.15.0",
 ]
 
 [project.scripts]
-xefus = "xefus:main"
+xefus = "xefus.cli:main"
 
-[dependency-groups]
+[project.optional-dependencies]
 all = [
+  "fastapi>=0.141.1",
   "pygls>=2.1.1",
+  "textual>=8.2.8",
   "typer>=0.27.2",
 ]
 api = [
@@ -40,12 +43,20 @@ tui = [
   "typer>=0.27.2",
 ]
 
+[dependency-groups]
+dev = [{ include-group = "lint" }, { include-group = "test" }]
+ci = [{ include-group = "lint" }, { include-group = "test" }]
+lint = [
+  "ruff>=0.16.5",
+  "ty>=0.0.77",
+]
+test = [
+  "pytest>=9.1.1",
+]
+
 [build-system]
 requires = ["uv_build>=0.12.5,<0.13.0"]
 build-backend = "uv_build"
-
-[tool.uv]
-default-groups = "all"
 
 [tool.uv.build-backend]
 module-name = "xefus"
