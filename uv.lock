@@ -720,7 +720,6 @@ version = "0.1.0"
 source = { editable = "." }
 dependencies = [
     { name = "alembic" },
-    { name = "fsrs-rs-python" },
     { name = "sqlalchemy" },
     { name = "tomlkit" },
     { name = "wenmode" },
@@ -729,6 +728,7 @@ dependencies = [
 [package.optional-dependencies]
 all = [
     { name = "fastapi" },
+    { name = "fsrs-rs-python" },
     { name = "pygls" },
     { name = "textual" },
     { name = "typer" },
@@ -739,11 +739,15 @@ api = [
 cli = [
     { name = "typer" },
 ]
+fsrs = [
+    { name = "fsrs-rs-python" },
+]
 lsp = [
     { name = "pygls" },
     { name = "typer" },
 ]
 std = [
+    { name = "fsrs-rs-python" },
     { name = "pygls" },
     { name = "textual" },
     { name = "typer" },
@@ -777,7 +781,9 @@ requires-dist = [
     { name = "alembic", specifier = ">=1.19.1" },
     { name = "fastapi", marker = "extra == 'all'", specifier = ">=0.141.1" },
     { name = "fastapi", marker = "extra == 'api'", specifier = ">=0.141.1" },
-    { name = "fsrs-rs-python", specifier = ">=0.9.3" },
+    { name = "fsrs-rs-python", marker = "extra == 'all'", specifier = ">=0.9.3" },
+    { name = "fsrs-rs-python", marker = "extra == 'fsrs'", specifier = ">=0.9.3" },
+    { name = "fsrs-rs-python", marker = "extra == 'std'", specifier = ">=0.9.3" },
     { name = "pygls", marker = "extra == 'all'", specifier = ">=2.1.1" },
     { name = "pygls", marker = "extra == 'lsp'", specifier = ">=2.1.1" },
     { name = "pygls", marker = "extra == 'std'", specifier = ">=2.1.1" },
@@ -793,7 +799,7 @@ requires-dist = [
     { name = "typer", marker = "extra == 'tui'", specifier = ">=0.27.2" },
     { name = "wenmode", specifier = ">=0.15.0" },
 ]
-provides-extras = ["all", "api", "cli", "lsp", "std", "tui"]
+provides-extras = ["all", "api", "cli", "fsrs", "lsp", "std", "tui"]
 
 [package.metadata.requires-dev]
 ci = [
