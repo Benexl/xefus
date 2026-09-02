@@ -1,0 +1,52 @@
+[project]
+name = "xefus"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [{ name = "Benexl", email = "benextempest@gmail.com" }]
+dependencies = [
+  "alembic>=1.19.1",
+  "fsrs-rs-python>=0.9.3",
+  "sqlalchemy>=2.0.52",
+  "wenmode>=0.15.0",
+]
+
+[project.scripts]
+xefus = "xefus:main"
+
+[dependency-groups]
+all = [
+  "pygls>=2.1.1",
+  "typer>=0.27.2",
+]
+api = [
+  "fastapi>=0.141.1",
+]
+cli = [
+  "typer>=0.27.2",
+]
+lsp = [
+  "pygls>=2.1.1",
+  "typer>=0.27.2",
+]
+std = [
+  "pygls>=2.1.1",
+  "textual>=8.2.8",
+  "typer>=0.27.2",
+]
+tui = [
+  "textual>=8.2.8",
+  "typer>=0.27.2",
+]
+
+[build-system]
+requires = ["uv_build>=0.12.5,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.uv]
+default-groups = "all"
+
+[tool.uv.build-backend]
+module-name = "xefus"
+module-root = ""
