@@ -1,0 +1,27 @@
+#:schema https://www.schemastore.org/prek.json
+
+[[repos]]
+repo = "https://github.com/astral-sh/ruff-pre-commit"
+rev = "v0.16.5"
+hooks = [
+  { id = "ruff-check", args = ["--fix"], types_or = ["python", "pyi"] },
+  { id = "ruff-format", types_or = ["python", "pyi"] },
+]
+
+[[repos]]
+repo = "https://github.com/crate-ci/typos"
+rev = "v1.50.2"
+hooks = [{ id = "typos" }]
+
+[[repos]]
+repo = "https://codeberg.org/fsfe/reuse-tool"
+rev = "v6.2.0"
+hooks = [{ id = "reuse" }]
+
+[[repos]]
+repo = "https://github.com/tombi-toml/tombi-pre-commit"
+rev = "v1.5.5"
+hooks = [
+  { id = "tombi-format", args = ["--offline"] },
+  { id = "tombi-lint", args = ["--offline"] },
+]

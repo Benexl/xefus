@@ -1,0 +1,6 @@
+#:schema https://www.schemastore.org/djlint.json
+
+indent = 2
+max_blank_lines = 5
+max_line_length = 80
+profile = "jinja"

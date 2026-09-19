@@ -1,0 +1,64 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "formatter": {
+    "djlint": {
+      "command": [
+        "uv",
+        "run",
+        "djlint",
+        "--reformat",
+        "$FILE"
+      ],
+      "extensions": [
+        ".j2"
+      ]
+    },
+    "ruff": {
+      "command": [
+        "uv",
+        "run",
+        "ruff",
+        "format",
+        "$FILE"
+      ]
+    }
+  },
+  "lsp": {
+    "pyright": {
+      "disabled": true
+    },
+    "ty": {
+      "command": [
+        "uv",
+        "run",
+        "ty",
+        "server"
+      ],
+      "extensions": [
+        ".py"
+      ]
+    },
+    "typos": {
+      "command": [
+        "typos-lsp"
+      ],
+      "extensions": [
+        ".py",
+        ".md",
+        ".toml",
+        ".j2"
+      ]
+    },
+    "ruff": {
+      "command": [
+        "uv",
+        "run",
+        "ruff",
+        "server"
+      ],
+      "extensions": [
+        ".py"
+      ]
+    }
+  }
+}

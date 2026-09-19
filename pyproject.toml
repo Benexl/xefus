@@ -1,0 +1,97 @@
+#:schema https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/pyproject.json
+
+[project]
+name = "xefus"
+version = "0.1.0"
+description = "A new way to manage your knowledge graph"
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [{ name = "Benexl", email = "benextempest@gmail.com" }]
+dependencies = [
+  "alembic>=1.19.1",
+  "jinja2>=3.1.6",
+  "loguru>=0.7.3",
+  "platformdirs>=4.11.7",
+  "pluggy>=1.6.0",
+  "sqlalchemy>=2.0.52",
+  "tomlkit>=0.15.1",
+  "wenmode>=0.15.0",
+]
+
+[project.scripts]
+xefus = "xefus.cli:main"
+
+[project.optional-dependencies]
+all = [
+  "fastapi>=0.141.1",
+  "fsrs-rs-python>=0.9.3",
+  "pygls>=2.1.1",
+  "textual>=8.2.8",
+  "typer>=0.27.2",
+  "chromadb>=1.5.9",
+  "sentence-transformers>=6.0.1",
+  "anki>=26.9.2",
+]
+api = [
+  "fastapi>=0.141.1",
+]
+cli = [
+  "typer>=0.27.2",
+]
+fsrs = [
+  "fsrs-rs-python>=0.9.3",
+]
+lsp = [
+  "pygls>=2.1.1",
+  "typer>=0.27.2",
+]
+
+search = [
+  "chromadb>=1.5.9",
+]
+search-hg = [
+  "chromadb>=1.5.9",
+  "sentence-transformers>=6.0.1",
+]
+
+anki = [
+  "anki>=26.9.2",
+]
+std = [
+  "fsrs-rs-python>=0.9.3",
+  "pygls>=2.1.1",
+  "textual>=8.2.8",
+  "typer>=0.27.2",
+  "chromadb>=1.5.9",
+  "anki>=26.9.2",
+]
+tui = [
+  "textual>=8.2.8",
+  "typer>=0.27.2",
+]
+
+[dependency-groups]
+all = []
+anki = []
+ci = [{ include-group = "lint" }, { include-group = "test" }]
+dev = [
+  "reuse>=6.2.0",
+  { include-group = "lint" },
+  { include-group = "test" },
+]
+lint = [
+  "ruff>=0.16.5",
+  "ty>=0.0.77",
+]
+std = []
+test = [
+  "pytest>=9.1.1",
+]
+
+[build-system]
+requires = ["uv_build>=0.12.5,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "xefus"
+module-root = ""
